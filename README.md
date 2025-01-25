@@ -35,5 +35,9 @@ The backend part is deployed on **Render**, and the frontend part is deployed on
    - Run the `SimplePortfolioApplication.java` file. This is the main entry point for the backend.
 
 ---
+## limitations
+   - I'm use the alphavantage stock free api so i can use api only 25 times in a day.
+   - if you can see current price is 0.00 in stock dashboard . it's mean i'm already used api 25 times in a day
+
 
 Let me know if you'd like further improvements!
