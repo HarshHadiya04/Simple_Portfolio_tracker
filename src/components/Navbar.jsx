@@ -30,7 +30,7 @@ const Navbar = () => {
             <Link to="/" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">
               Home
             </Link>
-            <Link to={user ? "/stocks" : "/login"} className="text-gray-600 dark:text-gray-300 hover:text-blue-500">
+            <Link to="stocks" className="text-gray-600 dark:text-gray-300 hover:text-blue-500">
               Add New Stock
             </Link>
             {!isAuthenticated ? (

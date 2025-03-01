@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Popup = ({ isOpen, onClose, stockName, currentPrice, userId, onAddPurchase }) => {
   const [quantity, setQuantity] = useState(1);
   const {user} = useAuth();
+  const navigate = useNavigate();
+ 
 
   if (!isOpen) return null; // Don't render the popup if it's not open
 
   const handleAddPurchase = async () => {
+    if (!user) {
+      alert("You must be logged in to make a purchase.");
+      navigate("/login");
+      return;
+    }
+
     const totalPrice = currentPrice * quantity;
 
     const purchaseData = {

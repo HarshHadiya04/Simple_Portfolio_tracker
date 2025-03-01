@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // For navigation
-import { useAuth } from '../../context/AuthContext'; // Assuming you have an AuthContext for authentication
 import LiveCharts from '../../charts/LiveCharts'; // Ensure the path is correct
 
 const stocksData = [
@@ -22,15 +20,6 @@ const stocksData = [
 
 const Stocks = () => {
   const [selectedStock, setSelectedStock] = useState(null);
-  const navigate = useNavigate();
-  const {user} = useAuth(); // Get authentication status from AuthContext
-
-  useEffect(() => {
-    // Redirect to login page if user is not logged in
-    if (!user) {
-      navigate('/login');
-    }
-  }, [user, navigate]);
 
   const handleToggleView = (symbol) => {
     setSelectedStock(selectedStock === symbol ? null : symbol); // Toggle visibility
